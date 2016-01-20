@@ -1,0 +1,246 @@
+// *************************************
+//
+//   Base
+//   -> Tag-level settings
+//
+// *************************************
+
+html, body
+  height: 100%
+  margin: 0
+  padding: 0
+
+html
+  @extend .tfb
+  background: $c-background url('../img/bg.jpg') repeat
+  background-size: 550px auto
+  color: $c-base
+  line-height: $b-lineHeight
+
+body
+  -moz-osx-font-smoothing: grayscale
+  -webkit-backface-visibility: hidden
+  -webkit-font-smoothing: antialiased
+  font-size: 100%
+  +respond-to($w-desk)
+    font-size: 120%
+
+::-moz-selection
+  background-color: $c-red
+  color: $c-background
+
+::selection
+  background-color: $c-red
+  color: $c-background
+
+.main
+  min-height: 100%
+  margin-bottom: -280px
+  &:after
+    content: ''
+    display: block
+    height: 280px
+
+.content
+  padding: 0 1.25em
+  +respond-to($w-desk)
+    padding: 0
+
+// -------------------------------------
+//   Block Content
+// -------------------------------------
+
+address
+  font-style: normal
+
+iframe, iframe:after
+  border: 4px solid $c-subdue
+
+ul, p
+  @extend .mbm
+  @extend .mtf
+
+li
+  @extend .mbs
+  @extend .mtf
+  line-height: 1
+
+menu
+  margin: 1em 0
+  padding: 0
+
+// ----- Headers ----- //
+
+h1, .h1
+  @extend .tfh
+  color: $c-red
+  font-size: 150%
+  line-height: 1
+  text-shadow: -1px -1px 0 rgba($c-base, 0.2), 1px 1px 0 white
+
+h2, .h2,
+h3, .h3
+  @extend .tfh
+  color: $c-subdue
+  font-size: 120%
+  line-height: 1.2
+
+h4, .h4
+  @extend .tfh
+  color: $c-base
+  font-size: 80%
+
+// ----- Text ----- //
+
+blockquote
+  background-color: darken($c-background, 2%)
+  border-radius: 8px
+  box-shadow: inset 1px 1px 1px darken($c-background, 10%)
+  color: lighten($c-base, 10%)
+  font-style: italic
+  margin: 0 auto 2em
+  padding: 1em 1.5em
+  p:first-of-type, h1:first-of-type, h2:first-of-type, h3:first-of-type
+    margin-top: 0
+  p:last-of-type
+    margin-bottom: 0
+
+mark
+  @extend .tfh
+  background: transparent
+  color: $c-red
+  font-style: normal
+
+p
+  margin: 1em 0 2em
+
+// -------------------------------------
+//   Inline Content
+// -------------------------------------
+
+a
+  color: $c-red
+  position: relative
+  text-decoration: none
+  transition: all 150ms ease-out
+  &:active, &:active:focus, &:active:hover
+    color: scale-color($c-orange, $lightness: -20%)
+  &:after
+    @extend .bb
+  &:focus, &:hover
+    color: $c-orange
+    outline: none
+  &:focus:after
+    border-bottom: 2px solid $c-orange
+    bottom: 0
+    content: ''
+    display: block
+    left: 0
+    position: absolute
+    width: 100%
+
+img
+  border: none
+  max-width: 100%
+  height: auto
+  overflow: hidden
+  vertical-align: bottom
+
+// ----- Forms ----- //
+
+input
+  @extend .bb
+  background: rgba($c-base, 0.02)
+  border: 2px solid lighten($c-base, 30%)
+  border-radius: 6px
+  color: lighten($c-base, 10%)
+  font: 16px $f-base
+  outline: none
+  padding: 0.5em 0.8em
+  transition: all 150ms ease-out
+  &:focus
+    background-color: rgba($c-base, 0.03)
+    border-color: $c-base
+    box-shadow: $b-boxShadow
+    color: $c-base
+
+input[type=checkbox], input[type=radio]
+  -moz-appearance: none
+  -webkit-appearance: none
+  appearance: none
+  background-color: transparent
+  border: none
+  left: -99999px
+  overflow: hidden
+  position: absolute
+  width: auto
+  + label
+    @extend .bb
+    display: inline-block
+    cursor: pointer
+    padding: 0.4em 1.2em 0.4em 24px
+    position: relative
+    &:after
+      left: 3px
+      opacity: 0
+      position: absolute
+      transition: opacity 150ms ease-out
+    &:before
+      border: 2px solid lighten($c-base, 20%)
+      border-radius: 4px
+      color: $c-orange
+      content: "\f00c"
+      font: 14px/80px "icomoon"
+      height: 14px
+      left: 0
+      margin-top: 1px
+      overflow: hidden
+      position: absolute
+      transition: all 150ms ease-out
+      width: 14px
+  &:checked, &:checked:hover, &:checked:focus
+    + label:before
+      background: $c-orange
+      border-color: darken($c-orange, 20%)
+      color: $c-invert
+      line-height: 15px
+  &:disabled
+    + label
+      &:active
+        margin: 0
+      &:before
+      &:hover
+        &:after
+        &:before
+    &:checked + label:after
+      color: #999
+  &:focus + label:before
+    box-shadow: $b-boxShadow
+  &:focus, &:hover
+    + label:before
+      background: rgba($c-orange, 0.2)
+      border-color: $c-base
+
+input[type=radio]
+  + label
+    &:before
+      border-radius: 50%
+      content: ""
+  &:checked
+
+input[type=submit], button
+  @extend .btn
+  border: none
+  padding: 0.6em 0.8em
+
+label
+  display: inline-block
+  font-size: 75%
+  margin-bottom: 1em
+  text-transform: uppercase
+
+textarea
+  @extend input
+  min-height: 5em
+  width: 100%
+

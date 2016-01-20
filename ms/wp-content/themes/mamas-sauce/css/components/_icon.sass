@@ -1,0 +1,47 @@
+// *************************************
+//
+//  Icon
+//  -> Handles icon font usage
+//
+// *************************************
+
+i:before,
+.icn::before,
+.icn--after::after
+  @extend .dib
+  font-family: $f-icons
+  font-style: normal
+  speak: none
+  vertical-align: baseline
+
+// -------------------------------------
+//  Generator
+// -------------------------------------
+
+// ----- Content ----- //
+
+@each $icon in $icons
+  .icn--#{nth($icon, 1)}:before
+    content: "#{nth($icon, 2)}"
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.icn--loader
+  color: $c-red
+  &:before
+    -webkit-animation: secondSpin 1s linear 0 infinite
+    animation: secondSpin 1s linear 0 infinite
+
+@-webkit-keyframes secondSpin
+  0%
+    -webkit-transform: rotate(0deg)
+  100%
+    -webkit-transform: rotate(360deg)
+
+@keyframes secondSpin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

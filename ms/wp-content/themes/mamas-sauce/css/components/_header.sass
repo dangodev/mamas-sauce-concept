@@ -1,0 +1,123 @@
+// *************************************
+//
+//   Header
+//   -> Common styles for headings (beyond h* tags)
+//
+// *************************************
+
+.header
+  @extend .group
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.header--home
+  border-bottom: $b-border
+  border-top: $b-border
+  padding: 2em 0 3em
+  position: relative
+  .h1
+    color: $c-base
+    font: italic 200%/1.2 $f-base
+    letter-spacing: -1px
+    padding: 1em 2em
+    text-align: center
+    text-transform: none
+  mark
+    font-size: 90%
+    margin-right: 0.4em
+  .wrapper
+    position: relative
+    z-index: 3
+
+.header--main
+  padding: 1.5em 0
+  text-align: center
+  .wrapper
+    position: relative
+  +respond-to(800px)
+    text-align: left
+
+.header--printing
+  border: $b-border
+  margin-bottom: 1.5em
+  padding-bottom: 0.7em
+  padding-top: 0.7em
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.header-cart
+  @extend .tfh
+  background: lighten($c-subdue, 10%)
+  border-radius: 50%
+  color: $c-invert
+  height: 32px
+  line-height: 32px
+  position: absolute
+  right: 1em
+  text-align: center
+  transition: all 150ms ease-out
+  top: 1em
+  width: 32px
+  &:hover
+    background: lighten($c-subdue, 20%)
+    color: $c-invert
+  &.is-active, &.is-active span
+    background: $c-orange
+    color: $c-invert
+  span
+    background: lighten($c-subdue, 10%)
+    border-radius: 50%
+    border: 3px solid $c-invert
+    color: $c-invert
+    display: block
+    font-size: 10px
+    font-weight: 700
+    height: 14px
+    letter-spacing: -1px
+    line-height: 14px
+    position: absolute
+    right: -0.75em
+    text-align: center
+    top: -0.75em
+    width: 14px
+
+.header-logo
+  border-radius: 50%
+  display: block
+  margin: 1em auto
+  transition: all 150ms ease-out
+  width: 140px
+  +respond-to(800px)
+    margin-left: 0
+    margin-right: 0
+  &:active, &:focus:active, &:hover:active
+    opacity: 1
+  &:focus:after
+    border-radius: 50%
+    border: 2px solid $c-orange
+    margin-bottom: -5%
+    margin-left: -5%
+    height: 110%
+    width: 110%
+  &:hover
+    opacity: 0.8
+  img
+    display: block
+    height: 140px
+
+.header-underlay
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+  background: url('../img/bg-home.jpg')
+  height: 100%
+  left: 0
+  opacity: 0.1
+  position: absolute
+  top: 0
+  width: 100%
+  z-index: 1

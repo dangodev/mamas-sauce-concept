@@ -1,0 +1,51 @@
+// *************************************
+//
+//   Cell
+//   -> Width-limiting blocks
+//
+// *************************************
+
+.cell
+  @extend .mbm
+  @extend .mhc
+  @extend .mtm
+  @extend .por
+  max-width: $b-maxWidth
+  padding: 0 1em
+  +respond-to($w-desk)
+    padding: 0
+
+// -------------------------------------
+//   Submodules
+// -------------------------------------
+
+.cell-image
+  margin-bottom: 1em
+  position: relative
+  img
+    display: none
+    height: auto
+    width: 100%
+    &:first-of-type
+      display: block
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.cell--shopGallery
+  padding-right: 1em
+  img
+    border-radius: 12px
+
+.cell--shopDesc
+  padding-left: 1em
+  .h1
+    margin: 0
+  .h2
+    margin: 0 0 2em
+  input[type=number]
+    padding: 0.25em 0.5em
+    width: 6em
+  select
+    width: 100%

@@ -1,0 +1,188 @@
+// *************************************
+//
+//   Navigation
+//   -> menus and navigational elements
+//
+// *************************************
+
+.nav
+  @extend .group
+  @extend .tfh
+  margin: 0
+  padding: 0
+  a
+    text-shadow: -1px -1px 0 rgba($c-base, 0.2), 1px 1px 0 white
+  ul
+    margin: 0
+    padding: 0
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// ----- Primary ----- //
+
+.nav--primary
+  font-size: 14px
+  font-weight: 700
+  margin: 0 auto
+  max-width: 42em
+  padding-top: 20px
+  text-transform: uppercase
+  vertical-align: center
+  +respond-to($w-mobile)
+    font-size: 16px
+    padding-top: 75px
+  a
+    border-radius: 4px
+    color: $c-base
+    padding: 0.4em 1em
+    &:focus:after
+      border: 2px solid $c-subdue
+      border-radius: 4px
+      height: 100%
+    &:hover
+      color: $c-orange
+  .menu-item
+    display: table-cell
+    margin: 0
+    text-align: center
+    width: 25%
+  .menu
+    display: table
+    width: 100%
+
+.nav--primary .current-menu-item a, .nav--primary .current-page-ancestor a, .single-printing .menu-item-5550 a
+  background-color: $c-orange
+  border: none
+  box-shadow: inset 1px 1px 1px darken($c-orange, 10%), 1px 1px white, -1px -1px rgba($c-base, 0.1)
+  color: $c-invert
+  text-shadow: 1px 1px darken($c-orange, 10%)
+  &:focus:after
+    border-color: darken($c-orange, 20%)
+
+// ----- Footer ----- //
+
+.nav--footer
+  text-align: center
+  padding: 24px 20px 0
+  a
+    font-size: 80%
+    font-weight: 700
+    text-shadow: none
+    text-transform: uppercase
+  li
+    display: inline-block
+    line-height: 0.3em
+    &:after
+      display: inline-block
+      color: lighten($c-subdue, 20%)
+      content: "•"
+      padding-left: 0.25em
+    &:last-of-type:after
+      content: ""
+      padding: 0
+  +respond-to($w-desk)
+    padding: 24px 0 0
+    text-align: left
+
+.nav--social
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  font-size: 80%
+  height: 80px
+  margin: 0 auto
+  a
+    font-size: 120%
+    margin: 0 0.2em
+    padding: 0.2em 0.5em
+
+// ----- Printing ----- //
+
+.nav--printing
+  .nav-item
+    float: left
+    margin: 0
+  input
+    &:checked
+      + label
+        background: $c-orange
+        color: $c-invert
+        &:before, &:hover:before
+          border-color: $c-invert
+    &:focus
+      + label
+        border-color: $c-subdue
+      &:checked, &:checked:hover
+        + label
+          border-color: darken($c-orange, 20%)
+          &:before
+            border-color: $c-invert
+    &:hover
+      + label
+        border-color: rgba($c-subdue, 0.5)
+    + label
+      -webkit-transition: all 150ms ease-out
+      border: 2px solid transparent
+      border-radius: 4px
+      margin-bottom: 0
+      margin-left: -3px
+      margin-right: 1em
+      padding-bottom: 0.5em
+      padding-left: 28px
+      transition: all 150ms ease-out
+      &:before
+        margin-left: 5px
+        margin-top: -1px
+
+// ----- Clients ----- //
+
+.nav--clients
+  @extend .bb
+  border-bottom: $b-border
+  height: 80px
+  text-align: center
+  .nav-item
+    display: inline-block
+    margin: 0 20px
+    a
+      height: 24px
+      line-height: 2
+      opacity: 0.5
+      transition: opacity 150ms ease-out
+      &:hover
+        opacity: 0.7
+      img
+        height: 100%
+        max-height: 24px
+        max-width: none
+
+// ----- Blog Sidebar ----- //
+
+.nav--sidebar
+  padding: 0 20px
+  a
+    font-size: 80%
+    text-shadow: none
+  li
+    line-height: 1
+    list-style-type: none
+    text-align: left
+  +respond-to($w-desk)
+    padding: 0
+
+.nav--table
+  display: table
+  li, .nav-itme
+    display: table-cell
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.nav-item, .nav-item a
+  display: block
+
+.nav-item
+  list-style-type: none
+  text-align: center

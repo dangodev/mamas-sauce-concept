@@ -1,0 +1,175 @@
+// *************************************
+//
+//   Card
+//   -> Individual style containers
+//
+// *************************************
+
+.card
+  @extend .bb
+  -webkit-transition: all 150ms ease-out
+  background-color: lighten($c-base, 15%)
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+  border-radius: 12px
+  box-shadow: inset 0 2px 6px rgba($c-base, 0.4)
+  display: block
+  height: 16em
+  line-height: 1
+  overflow: hidden
+  position: relative
+  transition: all 150ms ease-out
+  &:hover
+    a
+      opacity: 1
+    .has-img
+      -webkit-transform: scale(1)
+      opacity: 0.5
+      transform: scale(1)
+  a
+    display: block
+  .h1
+    @extend .bb
+    -webkit-transform: translateY(-50%)
+    color: $c-invert
+    display: block
+    font: 700 280%/1 "futura-pt", sans-serif
+    left: 0
+    margin: 0
+    max-width: none
+    padding-left: 10%
+    padding-right: 10%
+    position: absolute
+    text-align: center
+    text-shadow: 0 0 32px $c-base
+    text-transform: uppercase
+    top: 50%
+    transition: opacity 150ms ease-out
+    transform: translateY(-50%)
+    width: 100%
+  .h2
+    font: italic 400 90%/1 "schoolbook-web", serif
+    letter-spacing: 0
+    text-transform: none
+  img
+    -webkit-backface-visibility: hidden
+    -webkit-transition: all 150ms ease-out
+    // -webkit-transform: scale(1.1, 1.1)
+    // transform: scale(1.1, 1.1)
+    border-radius: 12px
+    transition: all 150ms ease-out
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.card--feature
+  background: transparent
+  margin-bottom: 2em
+
+.card--mini
+  background-color: darken($c-red, 25%)
+  height: 6em
+  img
+    transition: opacity 150ms ease-out
+  &:hover img
+    opacity: 0.7
+
+.card--none
+  background: none
+  float: none
+  clear: both
+  width: 100%
+  .h1
+    color: $c-subdue
+    font: italic 400 125%/1 $f-base
+    opacity: 1
+    text-shadow: none
+    text-transform: none
+
+.card--printing
+  -webkit-transform: scale(0.93)
+  cursor: pointer
+  float: left
+  width: 100%
+  transform: scale(0.93)
+  +respond-to($w-mobile)
+    width: 33.33%
+  > a
+    @extend .bb
+    border: 2px solid white
+    border-radius: 8px
+    color: white
+    font: 700 130%/1.2 $f-header
+    left: 12.5%
+    opacity: 0
+    padding: 0.5em 0.75em
+    position: absolute
+    text-align: center
+    text-transform: uppercase
+    transition: all 150ms ease-out
+    width: 75%
+    z-index: 3
+    &:active, &:hover:active, &:focus:active
+      background-color: rgba($c-base, 0.4)
+      color: white
+    &:hover, &:focus
+      background-color: rgba(white, 0.2)
+      opacity: 1
+      ~ a
+        opacity: 1
+      ~ .has-img
+        opacity: 0.5
+    &:first-of-type
+      top: 25%
+    &:last-of-type
+      bottom: 25%
+
+.card--team
+  border-bottom: 4px solid $c-subdue
+  border-radius: none
+  border-top: 4px solid $c-subdue
+  height: auto
+  margin-bottom: 2em
+  padding: 0
+  &:hover
+    border-color: $c-subdue
+
+.card--wop
+  background-color: white
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+.has-cards
+  padding-left: 1em
+  padding-right: 1em
+  +respond-to($w-desk)
+    padding-left: 0
+    padding-right: 0
+
+.has-img
+  -webkit-backface-visibility: hidden
+  -webkit-transform: scale(1.05)
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+  border-radius: 12px
+  display: block
+  height: 100%
+  left: 0
+  position: absolute
+  top: 0
+  transform: scale(1.05)
+  transition: all 150ms ease-out
+  width: 100%
+
+.has-printing
+  @extend .group
+  margin-left: -1.25%
+  margin-right: -1.25%
+
+.is-hidden
+  height: 0

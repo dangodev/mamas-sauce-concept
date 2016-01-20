@@ -1,0 +1,167 @@
+// *************************************
+//
+//   Utilities
+//   -> Global utilities
+//
+// *************************************
+
+// ----- Clearfix ----- //
+
+.group::after
+  clear: both
+  content: ''
+  display: table
+
+// ----- Debug ----- //
+
+.debug
+  background-color: pink !important
+
+// ----- Ellipsis ----- //
+
+.ellipsis
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+// ----- Image Replacement ----- //
+
+.ir
+  background-color: transparent
+  border: 0
+  overflow: hidden
+  &:before
+    content: ''
+    display: block
+    width: 0
+    height: 150%
+
+// ----- Wrapper ----- //
+
+.wrapper
+  margin-left: auto
+  margin-right: auto
+  max-width: $b-maxWidth
+
+// -------------------------------------
+//   Display
+// -------------------------------------
+
+.bb
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+.db
+  display: block
+.di
+  display: inline
+.dib
+  display: inline-block
+.dn
+  display: none
+
+// -------------------------------------
+//   Margins
+// -------------------------------------
+
+// ----- Bottom ----- //
+
+.mbf
+  margin-bottom: 0
+.mbxs
+  margin-bottom: 0.25 * $b-whitespace
+.mbs
+  margin-bottom: 0.5 * $b-whitespace
+.mbm
+  margin-bottom: $b-whitespace
+.mbl
+  margin-bottom: 2 * $b-whitespace
+
+// ----- Horizontal ----- //
+
+.mhc
+  margin-left: auto
+  margin-right: auto
+
+// ----- Left ----- //
+
+.mlf
+  margin-left: 0
+.mls
+  margin-left: 0.5 * $b-whitespace
+.mlm
+  margin-left: $b-whitespace
+
+// ----- Right ----- //
+
+.mrf
+  margin-right: 0
+.mrs
+  margin-right: 0.5 * $b-whitespace
+.mrm
+  margin-right: $b-whitespace
+
+// ----- Top ----- //
+
+.mtf
+  margin-top: 0
+.mts
+  margin-top: 0.5 * $b-whitespace
+.mtm
+  margin-top: $b-whitespace
+
+// -------------------------------------
+//   Positioning
+// -------------------------------------
+
+.fl
+  float: left
+.fr
+  float: right
+
+.poa
+  position: absolute
+.pof
+  position: fixed
+.por
+  position: relative
+.pos
+  position: static
+
+// -------------------------------------
+//   Rounding
+// -------------------------------------
+
+.ra
+  border-radius: 50%
+.ram
+  border-radius: $b-borderRadius
+
+// -------------------------------------
+//   Text
+// -------------------------------------
+
+// ----- Alignment ----- //
+
+.tac
+  text-align: center
+.tar
+  text-align: right
+  
+// ----- Family ----- //
+
+.tfb
+  font-family: $f-base
+.tfh
+  font-family: $f-header
+  font-weight: 700
+  text-transform: uppercase
+
+// ----- Style ----- //
+
+.tsi
+  font-style: italic
+
+// ----- Transform ----- //
+
+.ttu
+  text-transform: uppercase

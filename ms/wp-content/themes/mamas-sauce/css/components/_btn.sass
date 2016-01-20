@@ -1,0 +1,44 @@
+// *************************************
+//
+//   Buttons
+//   -> Clickables
+//
+// *************************************
+
+.btn
+  @extend .tfh
+  background-color: $c-orange
+  border-radius: 5px
+  box-shadow: inset 1px 1px 1px darken($c-orange, 10%), 1px 1px white, -1px -1px rgba($c-base, 0.1)
+  color: $c-invert
+  display: inline-block
+  padding: 0.3em 1.5em 0.4em
+  text-decoration: none     
+  text-shadow: 1px 1px darken($c-orange, 10%)
+  text-transform: uppercase
+  transition: all 150ms ease-out
+  &:active, &:focus:active, &:hover:active
+    background-color: scale-color($c-orange, $lightness: -20%)
+    color: $c-invert
+  &:focus, &:hover
+    background-color: scale-color($c-orange, $lightness: 15%)
+    color: $c-invert
+  &:focus:after
+    border: 2px solid darken($c-orange, 25%)
+    border-radius: 5px
+    height: 100%
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.btn--a
+  background: transparent
+  border: 2px solid $c-base
+  box-shadow: none
+  color: $c-base
+  text-shadow: none
+  &:focus, &:hover
+    background: transparent
+    border-color: $c-orange
+    color: $c-orange
